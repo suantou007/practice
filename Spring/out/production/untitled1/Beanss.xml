@@ -1,0 +1,41 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- Bean Definition to handle references and values -->
+    <bean id="address1" class="com.efg.JavaCollection" />
+    <bean id="address2" class="com.efg.JavaCollection" />
+    <bean id = "javaCollection" class = "com.efg.JavaCollection">
+
+        <!-- Passing bean reference  for java.util.List -->
+        <property name = "addressList">
+            <list>
+                <ref bean = "address1"/>
+                <ref bean = "address2"/>
+                <value>Pakistan</value>
+            </list>
+        </property>
+
+        <!-- Passing bean reference  for java.util.Set -->
+        <property name = "addressSet">
+            <set>
+                <ref bean = "address1"/>
+                <ref bean = "address2"/>
+                <value>Pakistan</value>
+            </set>
+        </property>
+
+        <!-- Passing bean reference  for java.util.Map -->
+        <property name = "addressMap">
+            <map>
+                <entry key = "one" value = "INDIA"/>
+                <entry key = "two" value-ref = "address1"/>
+                <entry key = "three" value-ref = "address2"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>

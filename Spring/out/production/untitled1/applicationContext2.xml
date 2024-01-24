@@ -1,0 +1,46 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--启动基于注解的声明方式 -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <bean id="player" class="com.work1.Player">
+        <property name="armet" ref="armet"/>
+        <property name="loricae" ref="loricae"/>
+        <property name="boot" ref="boot"/>
+        <property name="ring" ref="ring"/>
+    </bean>
+    <bean id="armet" class="com.work1.Equip">
+        <property name="name" value="战神头盔"/>
+        <property name="type" value="头盔"/>
+        <property name="speedPlus" value="2"/>
+        <property name="attackPlus" value="4"/>
+        <property name="defencePlus" value="6"/>
+    </bean>
+    <bean id="loricae" class="com.work1.Equip">
+        <property name="name" value="连环锁子甲"/>
+        <property name="type" value="铠甲"/>
+        <property name="speedPlus" value="6"/>
+        <property name="attackPlus" value="4"/>
+        <property name="defencePlus" value="15"/>
+    </bean>
+    <bean id="boot" class="com.work1.Equip">
+        <property name="name" value="波斯追风靴"/>
+        <property name="type" value="靴子"/>
+        <property name="speedPlus" value="8"/>
+        <property name="attackPlus" value="2"/>
+        <property name="defencePlus" value="3"/>
+    </bean>
+    <bean id="ring" class="com.work1.Equip" scope="prototype">
+        <property name="name" value="蓝魔指环"/>
+        <property name="type" value="指环"/>
+        <property name="speedPlus" value="8"/>
+        <property name="attackPlus" value="12"/>
+        <property name="defencePlus" value="2"/>
+    </bean>
+    <bean id = "BeforeBoost" class = "com.work1.BeforeBoost"/>
+</beans>
